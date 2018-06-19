@@ -1,19 +1,31 @@
 <!DOCTYPE html>
 <html lang="ch_Hans">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>my canvas for mobile</title>
     <link rel="stylesheet" href="./style.css">
+    <script src="//at.alicdn.com/t/font_711134_k02zu3a6b4c.js"></script>
 </head>
+
 <body>
     <canvas id='canvas' width="300" height="300">
     </canvas>
     <div id="actions" class="actions">
-        <botton id="eraser">橡皮擦</botton>
-        <botton id="brush">画笔</botton>
+        <svg id="brush" class="icon active">
+                <use xlink:href="#icon-pen"></use>
+            </svg>
+        <svg  id="eraser" class="icon">
+            <use xlink:href="#icon-xiangpica"></use>
+        </svg>
     </div>
-    <script src="./main.js"></script>
+    <ol class="colors">
+        <li id="red" class="red active"></li>
+        <li id="yellow" class="yellow"></li>
+        <li id="blue" class="blue"></li>
+    </ol>
 </body>
+    <script src="./main.js"></script>
 </html>

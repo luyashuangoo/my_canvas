@@ -5,15 +5,38 @@ autoSetCanvasSize(yyy);
 
 listenToMouse(yyy);
 
-var eraserEnabled = false;
-eraser.onclick = function() {
-  eraserEnabled = true;
-  actions.className = "actions x";
-};
-brush.onclick = function() {
-  eraserEnabled = false;
-  actions.className = "actions";
-};
+var eraserEnabled = false
+brush.onclick = function(){
+  eraserEnabled = false
+  brush.classList.add('active')
+  eraser.classList.remove('active')
+}
+eraser.onclick = function(){
+  eraserEnabled = true
+  eraser.classList.add('active')
+  brush.classList.remove('active')
+}
+//多种颜色的画笔
+
+red.onclick = function(){
+  console.log("你看不见我")
+  context.strokeStyle = "red"
+  red.classList.add('active')
+  yellow.classList.remove('active')
+  blue.classList.remove('active') 
+}
+yellow.onclick = function(){
+  context.strokeStyle = "yellow"
+  yellow.classList.add('active')
+  red.classList.remove('active')
+  blue.classList.remove('active') 
+}
+blue.onclick = function(){
+  context.strokeStyle = "blue"
+  blue.classList.add('active')
+  yellow.classList.remove('active')
+  red.classList.remove('active') 
+}
 
 /******/
 
@@ -42,7 +65,6 @@ function drawCircle(x, y, radius) {
 
 function drawLine(x1, y1, x2, y2) {
   context.beginPath();
-  context.strokeStyle = "black";
   context.moveTo(x1, y1); // 起点
   context.lineWidth = 5;
   context.lineTo(x2, y2); // 终点
