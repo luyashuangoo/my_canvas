@@ -2,6 +2,9 @@ ol,li{list-style: none}
 *{margin: 0;padding: 0;}
 #canvas {
   display: block;
+  position :fixed;
+  top :0;
+  left :0;
 }
 .icon {
   width: 2em;
@@ -10,16 +13,16 @@ ol,li{list-style: none}
   fill: currentColor;
   overflow: hidden;
 }
-body {
-  overflow: hidden;
-}
 
 .actions {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 10px;
+  left: 16px;
   transition: all 0.3s;
   padding: 10px;
+}
+.actions svg{
+  margin: 0 3px;
 }
 .actions svg.active{
   fill: red;
@@ -27,8 +30,8 @@ body {
 }
 .colors{
   position: fixed;
-  top: 50px;
-  left: 5px;
+  top: 60px;
+  left: 30px;
 }
 .colors li{
   width: 20px;
@@ -48,4 +51,15 @@ body {
 }
 .colors li.active{
   transform: scale(1.2);
+}
+.size{
+  position: fixed;
+  top: 10px;
+  right: 30px;
+}
+.size li{
+  font-size: 20px;
+}
+.size .thick{
+font-weight: bold;
 }

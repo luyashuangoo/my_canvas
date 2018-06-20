@@ -1,5 +1,7 @@
+
 var yyy = document.getElementById("canvas");
 var context = yyy.getContext("2d");
+var lineWidth = 5;
 
 autoSetCanvasSize(yyy);
 
@@ -19,7 +21,6 @@ eraser.onclick = function(){
 //多种颜色的画笔
 
 red.onclick = function(){
-  console.log("你看不见我")
   context.strokeStyle = "red"
   red.classList.add('active')
   yellow.classList.remove('active')
@@ -38,6 +39,31 @@ blue.onclick = function(){
   red.classList.remove('active') 
 }
 
+//删除
+clear.onclick = function(){
+  context.clearRect(0, 0, yyy.width, yyy.height); 
+}
+
+//笔尖粗细
+thin.onclick = function(){
+  lineWidth = 4;
+}
+thick.onclick = function(){
+  lineWidth = 7;
+}
+
+//保存笔迹
+save.onclick = function(){
+  var url = yyy.toDataURL("image/png")
+  console.log('url')
+  var a = document.createElement('a')
+  document.body.appendChild(a)
+  a.href = url
+  a.download = "My picture"
+  a.target = "_black"
+  a.click()
+
+}
 /******/
 
 function autoSetCanvasSize(canvas) {
@@ -66,7 +92,7 @@ function drawCircle(x, y, radius) {
 function drawLine(x1, y1, x2, y2) {
   context.beginPath();
   context.moveTo(x1, y1); // 起点
-  context.lineWidth = 5;
+  context.lineWidth = lineWidth;
   context.lineTo(x2, y2); // 终点
   context.stroke();
   context.closePath();
